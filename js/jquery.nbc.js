@@ -6,7 +6,7 @@
         items: 4,
         easing: 'linear',
         animationSpeed: 400,
-        dragable: false,
+        draggable: false,
         mousewheel: false,
         autoplay: 5000,
         vertical: false,
@@ -139,7 +139,7 @@
 
             // Дрэг
 
-            if (options.dragable) {
+            if (options.draggable) {
                 var currentOffset;
 
                 container.bind('dragstart.nbc', function(ev, dd) {
