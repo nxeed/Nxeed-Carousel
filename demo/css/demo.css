@@ -1,0 +1,55 @@
+body {
+    background-color: #993850;
+    font: 14px 'Verdana', sans-serif;
+}
+
+::selection {
+    background: #ffb7b7;
+}
+::-moz-selection {
+    background: #ffb7b7;
+}
+
+a {
+    color: #293E73;
+}
+
+a:hover {
+    color: #de3f7d;
+}
+
+#wrapper {
+    width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 32px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: #73293f;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td, th {
+    border: 1px solid #aaa;
+    padding: 4px 8px;
+    font-size: 80%;
+}
+
+.spoiler .body {
+    display: none;
+}
+
+.spoiler a {
+    text-decoration: none;
+    border-bottom: 1px dotted black;
+}
+
+.spoiler .active {
+    color: #de3f7d;
+}

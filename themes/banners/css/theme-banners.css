@@ -1,0 +1,115 @@
+.nbc-banners .nbc-shadow {
+    position: absolute;
+    background: url(../img/shadow.png);
+    width: 5px;
+    height: 86px;
+    top: -10px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.nbc-banners a img {
+    border: none;
+}
+
+.nbc-banners .nbc-shadow-left {
+    left: 68px;
+}
+
+.nbc-banners .nbc-shadow-right {
+    background-position: right top;
+    right: 68px;
+}
+
+.nbc-banners .nbc-control {
+    position: absolute;
+    top: 0;
+    width: 33px;
+    height: 66px;
+    background: url(../img/control.png);
+    cursor: pointer;
+}
+
+.nbc-banners .nbc-prev:active {
+    left: -4px;
+    -moz-transition: left 0.15s ease-in;
+    -webkit-transition: left 0.15s ease-in;
+    -o-transition: left 0.15s ease-in;
+    transition: left 0.15s ease-in;
+}
+
+.nbc-banners .nbc-prev {
+    left: 0;
+    -moz-transition: left 0.15s ease-in;
+    -webkit-transition: left 0.15s ease-in;
+    -o-transition: left 0.15s ease-in;
+    transition: left 0.15s ease-in;
+}
+
+.nbc-banners .nbc-prev:hover {
+    background-position: left bottom;
+}
+
+.nbc-banners .nbc-next {
+    right: 0;
+    background-position: right top;
+    -moz-transition: right 0.15s ease-in;
+    -webkit-transition: right 0.15s ease-in;
+    -o-transition: right 0.15s ease-in;
+    transition: right 0.15s ease-in;
+}
+
+.nbc-banners .nbc-next:hover {
+    background-position: right bottom;
+}
+
+.nbc-banners .nbc-next:active {
+    right: -4px;
+    -moz-transition: right 0.15s ease-in;
+    -webkit-transition: right 0.15s ease-in;
+    -o-transition: right 0.15s ease-in;
+    transition: right 0.15s ease-in;
+}
+
+.nbc-banners .nbc-slider span {
+    display: none;
+}
+
+.nbc-banners .nbc-pagination {
+    list-style: none;
+    margin: 4px 0;
+    padding: 0;
+    text-align: center;
+}
+.nbc-banners .nbc-pagination li {
+    display: inline;
+}
+
+.nbc-banners .nbc-pagination span {
+    display: none;
+}
+
+.nbc-banners .nbc-pagination li a {
+    display: inline-block;
+    background: #aaa;
+    width: 12px;
+    height: 12px;
+    margin: 0 4px;
+    border-radius: 6px;
+    -moz-transition: all 0.25s ease-in;
+    -webkit-transition: all 0.25s ease-in;
+    -o-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+}
+
+.nbc-banners .nbc-pagination .active a {
+    background: #9b2b4c;
+    -moz-transition: all 0.25s ease-in;
+    -webkit-transition: all 0.25s ease-in;
+    -o-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+}

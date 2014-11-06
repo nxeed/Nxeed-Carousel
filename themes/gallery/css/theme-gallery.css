@@ -1,0 +1,42 @@
+.nbc-gallery .nbc-container {
+    border-radius: 4px;
+}
+
+.nbc-gallery a img {
+    border: none;
+}
+
+.nbc-gallery .nbc-pagination {
+    list-style: none;
+    margin: 4px 0;
+    padding: 0;
+    text-align: center;
+}
+.nbc-gallery .nbc-pagination li {
+    display: inline;
+}
+
+.nbc-gallery .nbc-pagination span {
+    display: none;
+}
+
+.nbc-gallery .nbc-pagination li a {
+    display: inline-block;
+    background: #aaa;
+    width: 16px;
+    height: 16px;
+    margin: 0 4px;
+    border-radius: 16px;
+    -moz-transition: all 0.25s ease-in;
+    -webkit-transition: all 0.25s ease-in;
+    -o-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+}
+
+.nbc-gallery .nbc-pagination .active a {
+    background: #9b2b4c;
+    -moz-transition: all 0.25s ease-in;
+    -webkit-transition: all 0.25s ease-in;
+    -o-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+}

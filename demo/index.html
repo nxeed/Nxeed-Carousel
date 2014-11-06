@@ -1,0 +1,482 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Nxeed's Carousel</title>
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" href="css/demo.css" />
+        <link rel="stylesheet" href="../css/jquery.nbc.css" />
+
+        <link rel="stylesheet" href="../themes/banners/css/theme-banners.css" />
+        <link rel="stylesheet" href="../themes/tape/css/theme-tape.css" />
+        <link rel="stylesheet" href="../themes/gallery/css/theme-gallery.css" />
+
+        <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+
+        <script type="text/javascript" src="../js/jquery.easing.1.3.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.event.drag.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.mousewheel.min.js"></script>
+
+        <script type="text/javascript" src="../js/jquery.nbc.js"></script>
+
+        <link rel="stylesheet" href="lib/sh/css/sh_style.css" />
+        <script type="text/javascript" src="lib/sh/js/sh_main.min.js"></script>
+        <script type="text/javascript" src="lib/sh/js/sh_html.min.js"></script>
+        <script type="text/javascript" src="lib/sh/js/sh_javascript.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('.spoiler a').bind('click', function(e) {
+                    e.preventDefault();
+                    $(this).parent().find('.body').slideToggle();
+                    $(this).toggleClass('active');
+                });
+            });
+        </script>
+    </head>
+    <body onload="sh_highlightDocument();">
+        <div id="wrapper">
+            <h1 style="text-align: center">Nxeed's Carousel JQuery Plugin</h1>
+
+            <p>Простой и гибкий анимационный слайдер-карусель.</p>
+            <p>Поддерживает прокрутку по осям X и Y, темы, mousewheel, event drag, easing, двустороннюю и постраничную навигации.</p>
+
+            <h2>Подключение</h2>
+
+            <pre class="sh_html">
+&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;/lib/jquery.nbc/css/jquery.nbc.css&#x22; /&#x3E;
+
+&#x3C;!-- &#x415;&#x441;&#x43B;&#x438; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x435;&#x43C; &#x441;&#x43B;&#x430;&#x439;&#x434;&#x435;&#x440; &#x431;&#x430;&#x43D;&#x43D;&#x435;&#x440;&#x43E;&#x432; --&#x3E;
+&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;/lib/jquery.nbc/themes/banners/css/theme-banners.css&#x22; /&#x3E;
+&#x3C;!-- &#x415;&#x441;&#x43B;&#x438; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x435;&#x43C; &#x441;&#x43B;&#x430;&#x439;&#x434;&#x435;&#x440; &#x43D;&#x43E;&#x432;&#x43E;&#x441;&#x442;&#x435;&#x439; --&#x3E;
+&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;/lib/jquery.nbc/themes/tape/css/theme-tape.css&#x22; /&#x3E;
+&#x3C;!-- &#x415;&#x441;&#x43B;&#x438; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x435;&#x43C; &#x441;&#x43B;&#x430;&#x439;&#x434;&#x435;&#x440; &#x444;&#x43E;&#x442;&#x43E;&#x433;&#x430;&#x43B;&#x43B;&#x435;&#x440;&#x435;&#x438; --&#x3E;
+&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;/lib/jquery.nbc/themes/gallery/css/theme-gallery.css&#x22; /&#x3E;
+
+&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;/lib/jquery.nbc/js/jquery-1.11.1.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+
+&#x3C;!-- &#x415;&#x441;&#x43B;&#x438; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x435;&#x43C; easing --&#x3E;
+&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;/lib/jquery.nbc/js/jquery.easing.1.3.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;!-- &#x415;&#x441;&#x43B;&#x438; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x435;&#x43C; draggable --&#x3E;
+&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;/lib/jquery.nbc/js/jquery.event.drag.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;!-- &#x415;&#x441;&#x43B;&#x438; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x435;&#x43C; mousewheel --&#x3E;
+&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;/lib/jquery.nbc/js/jquery.mousewheel.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+
+&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;/lib/jquery.nbc/js/jquery.nbc.js&#x22;&#x3E;&#x3C;/script&#x3E;</pre>
+
+            <h2>Настройки плагина</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Описание</th>
+                        <th>По умолчанию</th>
+                        <th>Принимаемые значения</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>slideWidth</code></td>
+                        <td>Ширина слайда</td>
+                        <td><code>'auto'</code></td>
+                        <td><code>integer</code> — ширина в пикселах, <code>'auto'</code> — определяется автоматически по первому слайду</td>
+                    </tr>
+                    <tr>
+                        <td><code>slideHeight</code></td>
+                        <td>Высота слайда</td>
+                        <td><code>'auto'</code></td>
+                        <td><code>integer</code> — высота в пикселах, <code>'auto'</code> — определяется автоматически по первому слайду</td>
+                    </tr>
+                    <tr>
+                        <td><code>margin</code></td>
+                        <td>Расстояние между слайдами</td>
+                        <td><code>8</code></td>
+                        <td><code>integer</code> — отступ в пикселах</td>
+                    </tr>
+                    <tr>
+                        <td><code>items</code></td>
+                        <td>Количество отображаемых слайдов</td>
+                        <td><code>4</code></td>
+                        <td><code>integer</code> — количество слайдов</td>
+                    </tr>
+                    <tr>
+                        <td><code>easing</code></td>
+                        <td>Анимация пролистывания</td>
+                        <td><code>'linear'</code></td>
+                        <td><code>string</code> — название(см. <a href="http://easings.net/ru" target="_blank">http://easings.net/ru</a>)</td>
+                    </tr>
+                    <tr>
+                        <td><code>animationSpeed</code></td>
+                        <td>Скорость перехода к следующему слайду</td>
+                        <td><code>400</code></td>
+                        <td><code>integer</code> — время в милисекундах</td>
+                    </tr>
+                    <tr>
+                        <td><code>dragable</code></td>
+                        <td>Пролистывание тачем или жестами</td>
+                        <td><code>false</code></td>
+                        <td><code>boolean</code> — использовать, если <code>true</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>mousewheel</code></td>
+                        <td>Пролистывание колесиком мыши</td>
+                        <td><code>false</code></td>
+                        <td><code>boolean</code> — использовать, если <code>true</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>autoplay</code></td>
+                        <td>Автоматическое пролистывание, если курсор не наведен</td>
+                        <td><code>5000</code></td>
+                        <td><code>false</code> — не использовать, <code>integer</code> — интервал в милисекундах</td>
+                    </tr>
+                    <tr>
+                        <td><code>vertical</code></td>
+                        <td>Пролистывание по оси Y</td>
+                        <td><code>false</code></td>
+                        <td><code>boolean</code> — использовать, если <code>true</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>slider</code></td>
+                        <td>Двусторонняя навигация</td>
+                        <td>
+                            <code>{next: 'Next', prev: 'Prev'}</code>
+                        </td>
+                        <td><code>false</code> — не использовать, <code>object{next: 'Текст кнопки перехода к следующему слайду', prev: 'Текст кнопки перехода к предидущему слайду'}</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>pagination</code></td>
+                        <td>Постраничная навигация</td>
+                        <td>
+                            <code>false</code>
+                        </td>
+                        <td><code>boolean</code> — использовать, если <code>true</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Примеры использования</h2>
+
+            <h3 style="text-align: center">Информационные ресурсы</h3>
+
+            <div id="banners" class="nbc nbc-banners">
+                <div class="nbc-container">
+                    <div class="nbc-wrapper">
+                        <a class="nbc-slide" target="_blank" href="http://akorda.kz/">
+                            <img src="img/banner_akorda.png" alt="akorda" />
+                        </a>
+                        <a class="nbc-slide" target="_blank" href="http://government.kz">
+                            <img src="img/banner_government.png" alt="government" />
+                        </a>
+                        <a class="nbc-slide" target="_blank" href="http://government.kz">
+                            <img src="img/banner_parlam.png" alt="parlam" />
+                        </a>
+                        <a class="nbc-slide" target="_blank" href="http://www.karaganda-region.giv.kz/">
+                            <img src="img/banner_karaganda-region.png" alt="karaganda-region" />
+                        </a>
+                        <a class="nbc-slide" target="_blank" href="http://adilet.zan.kz/">
+                            <img src="img/banner_adilet.png" alt="adilet" />
+                        </a>
+                        <a class="nbc-slide" target="_blank" href="http://www.altynsapa.kz/">
+                            <img src="img/banner_altynsapa.png" alt="altynsapa" />
+                        </a>
+                        <a class="nbc-slide" target="_blank" href="http://www.trade.gov.kz/">
+                            <img src="img/banner_trade.png" alt="trade" />
+                        </a>
+                        <a class="nbc-slide" target="_blank" href="http://www.e-krg.gov.kz/">
+                            <img src="img/banner_ekrg.png" alt="ekrg" />
+                        </a>
+                    </div>
+                </div>
+                <div class="nbc-shadow nbc-shadow-left"></div>
+                <div class="nbc-shadow nbc-shadow-right"></div>
+            </div>
+
+            <script type="text/javascript">
+                $(window).load(function() {
+                    $('#banners').nbc({
+                        easing: 'easeOutBack',
+                        animationSpeed: 1200,
+                        dragable: true,
+                        mousewheel: true,
+                        pagination: true,
+                        slideWidth: 160,
+                        slideHeight: 66
+                    });
+                });
+            </script>
+
+            <div class="spoiler">
+                <a href="#">HTML</a>
+                <div class="body">
+                    <pre class="sh_html">
+&#x3C;div id=&#x22;banners&#x22; class=&#x22;nbc nbc-banners&#x22;&#x3E;
+    &#x3C;div class=&#x22;nbc-container&#x22;&#x3E;
+        &#x3C;div class=&#x22;nbc-wrapper&#x22;&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;http://akorda.kz/&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/banner_akorda.png&#x22; alt=&#x22;akorda&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;http://government.kz&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/banner_government.png&#x22; alt=&#x22;government&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;http://government.kz&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/banner_parlam.png&#x22; alt=&#x22;parlam&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;http://www.karaganda-region.giv.kz/&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/banner_karaganda-region.png&#x22; alt=&#x22;karaganda-region&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;http://adilet.zan.kz/&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/banner_adilet.png&#x22; alt=&#x22;adilet&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;http://www.altynsapa.kz/&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/banner_altynsapa.png&#x22; alt=&#x22;altynsapa&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;http://www.trade.gov.kz/&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/banner_trade.png&#x22; alt=&#x22;trade&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;http://www.e-krg.gov.kz/&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/banner_ekrg.png&#x22; alt=&#x22;ekrg&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+        &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+    &#x3C;div class=&#x22;nbc-shadow nbc-shadow-left&#x22;&#x3E;&#x3C;/div&#x3E;
+    &#x3C;div class=&#x22;nbc-shadow nbc-shadow-right&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;</pre>
+                </div>
+            </div>
+
+            <div class="spoiler">
+                <a href="#">JavaScript</a>
+                <div class="body">
+                    <pre class="sh_javascript">
+&#x3C;script type=&#x22;text/javascript&#x22;&#x3E;
+    $(window).load(function() {
+        $(&#x27;#banners&#x27;).nbc({
+            easing: &#x27;easeOutBack&#x27;,
+            animationSpeed: 1200,
+            dragable: true,
+            mousewheel: true,
+            pagination: true,
+            slideWidth: 160,
+            slideHeight: 66
+        });
+    });
+&#x3C;/script&#x3E;</pre>
+                </div>
+            </div>
+
+            <h3>Последние новости</h3>
+
+            <div id="tape" class="nbc nbc-tape">
+                <div class="nbc-container">
+                    <div class="nbc-wrapper">
+                        <div class="nbc-slide">
+                            <div class="content">
+                                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing</h4>
+                                <small>01.09.1991</small>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                            <p>
+                                <a href="#">Подробнее</a>
+                            </p>
+                        </div>
+
+                        <div class="nbc-slide">
+                            <div class="content">
+                                <h4>Sed ut perspiciatis, unde omnis iste natus error</h4>
+                                <small>01.09.1991</small>
+                                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo</p>
+                            </div>
+                            <p>
+                                <a href="#">Подробнее</a>
+                            </p>
+                        </div>
+
+                        <div class="nbc-slide">
+                            <div class="content">
+                                <h4>Sed ut perspiciatis, unde omnis</h4>
+                                <small>01.09.1991</small>
+                                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo</p>
+                            </div>
+                            <p>
+                                <a href="#">Подробнее</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                $('#tape').nbc({
+                    autoplay: 3000,
+                    dragable: true,
+                    mousewheel: true,
+                    vertical: true,
+                    slider: false,
+                    margin: 0,
+                    items: 1,
+                    pagination: true
+                });
+            </script>
+
+            <div class="spoiler">
+                <a href="#">HTML</a>
+                <div class="body">
+                    <pre class="sh_html">
+&#x3C;div id=&#x22;tape&#x22; class=&#x22;nbc nbc-tape&#x22;&#x3E;
+    &#x3C;div class=&#x22;nbc-container&#x22;&#x3E;
+        &#x3C;div class=&#x22;nbc-wrapper&#x22;&#x3E;
+            &#x3C;div class=&#x22;nbc-slide&#x22;&#x3E;
+                &#x3C;div class=&#x22;content&#x22;&#x3E;
+                    &#x3C;h4&#x3E;Lorem ipsum dolor sit amet, consectetur adipisicing&#x3C;/h4&#x3E;
+                    &#x3C;small&#x3E;01.09.1991&#x3C;/small&#x3E;
+                    &#x3C;p&#x3E;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&#x3C;/p&#x3E;
+                &#x3C;/div&#x3E;
+                &#x3C;p&#x3E;
+                    &#x3C;a href=&#x22;#&#x22;&#x3E;&#x41F;&#x43E;&#x434;&#x440;&#x43E;&#x431;&#x43D;&#x435;&#x435;&#x3C;/a&#x3E;
+                &#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+
+            &#x3C;div class=&#x22;nbc-slide&#x22;&#x3E;
+                &#x3C;div class=&#x22;content&#x22;&#x3E;
+                    &#x3C;h4&#x3E;Sed ut perspiciatis, unde omnis iste natus error&#x3C;/h4&#x3E;
+                    &#x3C;small&#x3E;01.09.1991&#x3C;/small&#x3E;
+                    &#x3C;p&#x3E;Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo&#x3C;/p&#x3E;
+                &#x3C;/div&#x3E;
+                &#x3C;p&#x3E;
+                    &#x3C;a href=&#x22;#&#x22;&#x3E;&#x41F;&#x43E;&#x434;&#x440;&#x43E;&#x431;&#x43D;&#x435;&#x435;&#x3C;/a&#x3E;
+                &#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+
+            &#x3C;div class=&#x22;nbc-slide&#x22;&#x3E;
+                &#x3C;div class=&#x22;content&#x22;&#x3E;
+                    &#x3C;h4&#x3E;Sed ut perspiciatis, unde omnis&#x3C;/h4&#x3E;
+                    &#x3C;small&#x3E;01.09.1991&#x3C;/small&#x3E;
+                    &#x3C;p&#x3E;Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo&#x3C;/p&#x3E;
+                &#x3C;/div&#x3E;
+                &#x3C;p&#x3E;
+                    &#x3C;a href=&#x22;#&#x22;&#x3E;&#x41F;&#x43E;&#x434;&#x440;&#x43E;&#x431;&#x43D;&#x435;&#x435;&#x3C;/a&#x3E;
+                &#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+        &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;</pre>
+                </div>
+            </div>
+
+            <div class="spoiler">
+                <a href="#">JavaScript</a>
+                <div class="body">
+                    <pre class="sh_javascript">
+$(&#x27;#tape&#x27;).nbc({
+    autoplay: 3000,
+    dragable: true,
+    mousewheel: true,
+    vertical: true,
+    slider: false,
+    margin: 0,
+    items: 1,
+    pagination: true
+});</pre>
+                </div>
+            </div>
+
+            <h3>Последние фотографии</h3>
+
+            <div id="gallery" class="nbc nbc-gallery">
+                <div class="nbc-container">
+                    <div class="nbc-wrapper">
+                        <a class="nbc-slide" target="_blank" href="img/photo1_src.jpg">
+                            <img src="img/photo1_thumb.jpg" alt="photo1" />
+                        </a>
+                        <a class="nbc-slide" target="_blank" href="img/photo2_src.jpg">
+                            <img src="img/photo2_thumb.jpg" alt="photo2" />
+                        </a>
+                        <a class="nbc-slide" target="_blank" href="img/photo3_src.jpg">
+                            <img src="img/photo3_thumb.jpg" alt="photo3" />
+                        </a>
+                        <a class="nbc-slide" target="_blank" href="img/photo4_src.jpg">
+                            <img src="img/photo4_thumb.jpg" alt="photo4" />
+                        </a>
+                        <a class="nbc-slide" target="_blank" href="img/photo5_src.jpg">
+                            <img src="img/photo5_thumb.jpg" alt="photo5" />
+                        </a>
+                        <a class="nbc-slide" target="_blank" href="img/photo6_src.jpg">
+                            <img src="img/photo6_thumb.jpg" alt="photo6" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                $('#gallery').nbc({
+                    autoplay: 3000,
+                    animationSpeed: 1000,
+                    easing: "easeInOutQuint",
+                    slideWidth: 400,
+                    slideHeight: 267,
+                    dragable: true,
+                    mousewheel: true,
+                    slider: false,
+                    margin: 0,
+                    items: 1,
+                    pagination: true
+                });
+            </script>
+
+            <div class="spoiler">
+                <a href="#">HTML</a>
+                <div class="body">
+                    <pre class="sh_html">
+&#x3C;div id=&#x22;gallery&#x22; class=&#x22;nbc nbc-gallery&#x22;&#x3E;
+    &#x3C;div class=&#x22;nbc-container&#x22;&#x3E;
+        &#x3C;div class=&#x22;nbc-wrapper&#x22;&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;img/photo1_src.jpg&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/photo1_thumb.jpg&#x22; alt=&#x22;photo1&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;img/photo2_src.jpg&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/photo2_thumb.jpg&#x22; alt=&#x22;photo2&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;img/photo3_src.jpg&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/photo3_thumb.jpg&#x22; alt=&#x22;photo3&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;img/photo4_src.jpg&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/photo4_thumb.jpg&#x22; alt=&#x22;photo4&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;img/photo5_src.jpg&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/photo5_thumb.jpg&#x22; alt=&#x22;photo5&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+            &#x3C;a class=&#x22;nbc-slide&#x22; target=&#x22;_blank&#x22; href=&#x22;img/photo6_src.jpg&#x22;&#x3E;
+                &#x3C;img src=&#x22;img/photo6_thumb.jpg&#x22; alt=&#x22;photo6&#x22; /&#x3E;
+            &#x3C;/a&#x3E;
+        &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;</pre>
+                </div>
+            </div>
+
+            <div class="spoiler">
+                <a href="#">JavaScript</a>
+                <div class="body">
+                    <pre class="sh_javascript">
+&#x3C;script type=&#x22;text/javascript&#x22;&#x3E;
+    $(&#x27;#gallery&#x27;).nbc({
+        autoplay: 3000,
+        animationSpeed: 1000,
+        easing: &#x22;easeInOutQuint&#x22;,
+        slideWidth: 400,
+        slideHeight: 267,
+        dragable: true,
+        mousewheel: true,
+        slider: false,
+        margin: 0,
+        items: 1,
+        pagination: true
+    });
+&#x3C;/script&#x3E;</pre>
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>

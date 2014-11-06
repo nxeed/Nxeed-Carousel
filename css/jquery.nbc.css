@@ -1,0 +1,25 @@
+.nbc {
+    position: relative;
+}
+
+.nbc-container {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.nbc-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.nbc-wrapper {
+    position: absolute;
+    top: 0;
+}
+
+.nbc-dragging,
+.nbc-dragging .nbc-slide {
+    cursor: pointer;
+}

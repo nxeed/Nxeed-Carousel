@@ -1,0 +1,63 @@
+.nbc-tape .nbc-container {
+    border: 1px solid #aaa;
+}
+.nbc-tape .nbc-slide {
+    width: 250px;
+    padding: 8px;
+}
+
+.nbc-tape .content {
+    overflow: hidden;
+    height: 300px;
+    position: relative;
+    font-size: 90%;
+}
+
+.nbc-tape .content:after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 24px;
+    bottom: 0;
+    left: 0;
+    background: url(../img/fader.png);
+}
+
+.nbc-tape .nbc-pagination {
+    list-style: none;
+    margin: 4px 0;
+    padding: 0;
+    text-align: center;
+}
+.nbc-tape .nbc-pagination li {
+    display: inline;
+    text-align: center;
+}
+
+.nbc-tape .nbc-pagination li a {
+    display: inline-block;
+    background: #aaa;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    vertical-align: middle;
+    margin: 0 4px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: "Trebuchet MS";
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    -moz-transition: all 0.25s ease-in;
+    -webkit-transition: all 0.25s ease-in;
+    -o-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+}
+
+.nbc-tape .nbc-pagination .active a {
+    background: #9b2b4c;
+    -moz-transition: all 0.25s ease-in;
+    -webkit-transition: all 0.25s ease-in;
+    -o-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+}
